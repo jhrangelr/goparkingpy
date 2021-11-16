@@ -1,0 +1,351 @@
+.content-login {
+    width: 1000px;
+    top: 50%;
+    left: 60%;
+    position: absolute;    
+    transform: translate(-55%,-50%);
+}
+
+.content-login .login article {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.content-login .login article {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.content-login .login article .logo {
+    width: 386px;    
+    height: 443px;
+}
+
+.content-login .login article .form {
+    width: 386px;    
+    height: 443px;
+    padding: 35px;
+}
+
+.content-login .login article .logo img {
+    top: 50%;
+    position: relative;    
+    transform: translateY(-50%);
+}
+
+.content-login .login .form {
+    vertical-align: top;
+    text-align: center;
+}
+
+.content-login .login .form {   
+    background: #E0FAFF;
+    border-radius: 10px;
+    border: 1px solid #AEDBE1;
+}
+
+.content-login .login .form .icon-computer {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.Icon span{
+    background: #000;
+    padding: 20px;
+    border-radius: 120px;
+}
+
+.Icon{
+   margin-top: 10px;
+   margin-bottom:10px; 
+   color: #FFF;
+   font-size: 50px;
+   text-align: center;
+}
+
+.opcioncontra{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.input-group-addon {
+    font-weight: 400;
+    color: #555;
+    text-align: center;
+    background-color: #fff !important;
+    border-left: 1px solid #B4B4B4 !important;
+    border-top: 1px solid #B4B4B4 !important;
+    border-bottom: 1px solid #B4B4B4 !important;
+    border-right: 0px !important;
+}
+
+.form-control {
+    border: 1px solid #B4B4B4 !important;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+
+.btn-gris {
+	background-color:#696969;
+	border-radius:5px;
+	border:1px solid #696969;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:8px 31px;
+	text-decoration:none;
+    width: 180px;
+}
+
+.btn-gris:hover {
+	background-color:#535353;
+}
+
+.btn-gris:active {
+	position:relative;
+	top:1px;
+}
+
+/*CSS para gest user, edit user, new user*/
+
+.content-template {
+    width: 1100px;
+    height: 100vh;
+    margin: 50px auto;
+}
+
+.content-template .section-flex {
+    display: flex;
+}
+
+.content-template .section-flex .article-flex-header {
+    flex: 0.5;
+}
+
+.content-template .section-flex .article-flex-body {
+    flex: 1;
+}
+
+.content-template article {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.content-template .logo {
+    width: 126px;
+    height: 106px;
+}
+
+.content-template .menu {
+    margin-top: 150px;   
+}
+
+.content-template .menu ul {
+    width: 270px;
+    margin-top: 150px;
+    list-style: none;
+    padding: 0px;  
+}
+
+.content-template .menu li {
+    border-radius: 10px;
+    margin: 10px 0;    
+    background: #dfdfdf;
+}
+
+.content-template .menu li a {
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.content-template .menu li a div {
+    padding: 15px;
+}
+
+.content-template .menu i {
+    text-align: right;
+}
+
+.content-template .menu li:hover {
+    background: #E0FAFF;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+/*Contenido de cada menu*/
+.content-template .section-content {
+    margin-left: 100px;
+    text-align: center;
+}
+
+.content-template .diametro {
+    width: 715px;
+}
+
+
+.content-template .section-content h3 {
+    margin: 80px 0;
+}
+
+.content-template .section-content .titulo {
+    margin: 80px 0 0 0;
+}
+
+.content-template .section-content .subtitulo {
+    font-size: 15px;
+    font-weight: normal;
+    margin: 10px 0 80px 0;
+}
+
+.content-template .section-content .search {
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: right;
+}
+
+.content-template .section-content .form-control {
+    display: inline-block !important;
+    width: 300px !important;
+}
+
+.content-template .section-content .btn-gris {
+    width: 150px !important;
+    padding: 7px 31px;
+    font-size: 12px;
+}
+
+.table {
+    font-size: 12px;    
+}
+
+.table .thead-dark th {
+    color: #616161 !important;
+    border: 1px solid #C9C7C7 !important;
+    background: #C9C7C7 !important;
+}
+
+.table tr td a img {
+    width: 24px;
+    height: 24px;
+}
+
+.content-template .section-content .new {
+    text-align: right;
+}
+
+.content-template .user-form {
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.content-template .user-form section {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.content-template .user-form section article {
+    flex: 1;
+}
+
+.vertical-line {
+    margin: 0 35px 0 25px;
+    height: 380px;
+    width: 1px;
+    background: #616161;
+}
+
+.content-template .user-form .form-control {
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 13px;
+    width: 150px !important;
+    margin-top: 5px !important;
+}
+
+.content-template .user-form .form-control-name {
+    width: 320px !important;
+}
+
+.content-template .user-form .chek {
+    text-align: right;
+}
+
+.content-template .user-form .chek label {
+    margin-right: 20px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.details-ticket {
+    background: #E0FAFF;
+    padding: 5px 10px;
+    width: 160px;
+    border-radius: 5px;
+    border: 1px solid #B9F4FF;
+}
+
+.details-ticket-subtitle {
+    background: #E0FAFF;
+    padding: 5px;
+    width: 120px;
+    border-radius: 5px;
+    border: 1px solid #B9F4FF;
+    color: #959595;
+    margin-left: 15px;
+}
+
+.details-ticket-field {
+    background: #F3F3F3;
+    padding: 5px;
+    width: 130px;
+    border-radius: 5px;
+    border: 1px solid rgb(218, 218, 218);
+    margin-left: 5px;
+    text-align: left;
+    color: #959595;
+}
+
+.details-ticket-font {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+div {
+    padding: 200px;
+    }
+    h1{
+    text-align: center; 
+    color:#FFF; 
+    font-family:sans-serif
+    }
+    table{
+      color:#FFF !important; 
+      font-family:sans-serif;
+      text-align: center; 
+    }
+    th{ 
+    font-size:20px;
+    }

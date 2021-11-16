@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' type='text/css' media='screen' href="../css/style.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+    <body>
+        <div class="content-template">
+            <section class="section-flex">
+                <article>
+                    <div>
+                        <img class="logo" src="../img/logo_login.png" />
+                    </div>
+                    
+                    <div class="menu">
+                        <ul>
+                            <li>
+                                <a>
+                                    <div>
+                                        <span>Bandeja Ticket</span>
+                                        <i class="arrow right"></i> 
+                                    </div>                                
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <div>
+                                        <span>Gestionar Usuarios</span>
+                                        <i class="arrow right"></i> 
+                                    </div>                                       
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <div>
+                                        <span>Cerrar Sesión</span>
+                                        <i class="arrow right"></i> 
+                                    </div>                                       
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="section-content diametro">
+                    <h3>Editar Usuario</h3>
+
+                    <form>
+                        <div class="user-form">
+                            <section>
+                                <article>
+                                    <div>
+                                        <section>
+                                            <article>
+                                                <span>Nombre</span>
+                                                <div>
+                                                    <input type="text" class="form-control form-control-name" aria-describedby="sizing-addon1" required>
+                                                </div>                                                
+                                            </article>
+                                        </section>
+                                    </div>                                      
+
+                                    <div>
+                                        <section>
+                                            <article>
+                                                <span>Documento</span>
+                                                <input type="text" class="form-control" aria-describedby="sizing-addon1" required>
+                                            </article>
+                                            <article>
+                                                <span>Genero</span>
+
+                                                <select class="form-control">
+                                                    <option>Masculino</option>
+                                                    <option>Femenino</option>
+                                                </select>
+                                            </article>
+                                        </section>
+                                    </div>
+
+                                    <div>
+                                        <div><span>Cargo</span></div>
+                                        
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Sistemas
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Facturación
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Contabilidad
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Recursos Humanos
+                                            </label>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <div class="vertical-line"></div>
+
+                                <article>
+                                    <div>
+                                        <section>
+                                            <article>
+                                                <span>Correo Electronico</span>
+                                                <input type="email" class="form-control" aria-describedby="sizing-addon1" required>                                            
+                                            </article>
+                                            <article>
+                                                <span>Usuario</span>
+                                                <input type="text" class="form-control" aria-describedby="sizing-addon1" required>                                           
+                                            </article>
+                                        </section>
+                                    </div>  
+
+                                    <div>
+                                        <section>
+                                            <article>
+                                                <span>Password</span>
+                                                <input type="password" class="form-control" aria-describedby="sizing-addon1" required>                                             
+                                            </article>
+                                            <article>
+                                                <span>Confirmar Password</span>
+                                                <input type="password" class="form-control" aria-describedby="sizing-addon1" required>                                              
+                                            </article>
+                                        </section>
+                                    </div>
+
+                                    <div class="chek">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">¿Es un usuario administrador?</label>
+                                    </div>  
+                                </article>
+                            </section>                            
+                        </div>
+
+                        <div class="new">
+                            <button class="btn-gris" type="submit">Cancelar</button>
+                            <button class="btn-gris" type="submit">Crear Usuario</button>
+                        </div>
+                    </form>                   
+                </article>
+            </section>
+        </div>
+    </body>
+</html>

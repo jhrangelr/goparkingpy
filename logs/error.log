@@ -1,0 +1,20 @@
+151515151515184184184184Errormessage: %s
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''2021-10-29 23:09:52)' at line 1Errormessage: %s
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''2021-10-29 23:10:03)' at line 1Errormessage: %s
+Cannot add or update a child row: a foreign key constraint fails (`goparking2`.`registro_tiempo`, CONSTRAINT `cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`))Errormessage: %s
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''2021-11-11 20:38:06)' at line 1Errormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+Field 'id_rol' doesn't have a default valueErrormessage: %s
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''2021-11-13 16:59:50)' at line 1
