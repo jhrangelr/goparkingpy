@@ -1,52 +1,15 @@
 <?php 
+include '../lib/head.php';
 error_reporting(E_ALL);
 ini_set('display_errors',1);
+$idCliente = isset($_SESSION['id_cliente'])? trim($_SESSION['id_cliente']):trim($_GET['documento']);
+$admin = isset($_SESSION['rol'])? trim($_SESSION['rol']):0;
 
-include '../bd/bd.php';
-include '../lib/filaAccion.php';
-$bd = new bd();
-$filaAccion = new filaAccion();
-
-$documento = trim($_GET['documento']);
-
-$sql = "SELECT 
-c.nombre,
-c.apellido,
-c.email,
-c.celular,
-v.placa,
-rt.fecha_ingreso,
-rt.fecha_salida,
-rt.tiempo
-FROM cliente c
-INNER JOIN vehiculo v ON v.id_cliente = c.id_cliente
-INNER JOIN registro_tiempo rt ON rt.id_cliente = c.id_cliente
-WHERE c.documento = '%s'
-ORDER BY rt.fecha_ingreso DESC";
-$parametros = array($documento);
-$usuarios = $filaAccion->getFetchArray($bd->consultar($sql, $parametros));
+echo $admin;
+echo $idCliente;
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Material Dashboard Dark Edition by Creative Tim
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-</head>
-
-<body class="dark-edition">
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
       <div class="logo"><a href="" class="simple-text logo-normal">
@@ -64,6 +27,12 @@ $usuarios = $filaAccion->getFetchArray($bd->consultar($sql, $parametros));
             <a class="nav-link" href="tables.php">
               <i class="material-icons">content_paste</i>
               <p>Lista</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../salir.php">
+              <i class="material-icons">content_paste</i>
+              <p>Cerrar sesión</p>
             </a>
           </li>
         </ul>
@@ -148,35 +117,17 @@ $usuarios = $filaAccion->getFetchArray($bd->consultar($sql, $parametros));
                         <th>Correo</th>
                         <th>Celular</th>
                         <th>Placa</th>
-                        <th>Fecha ingreso</th>
+                        <th>Fecha Ingreso</th>
                         <th>Fecha Salida</th>
+                        <?php if ($admin == 1){ ?>
+                        <th>Timepo Total</th>
+                        <?php }else{ ?>
                         <th>Timepo actual</th>
                         <th>Timepo concurrido</th>
+                        <?php } ?>
                         <th>Acción</th>
                       </thead>
-                      <tbody>
-                        <?php foreach ($usuarios as $usuario){?>
-                        <tr>
-                          <td><?php echo ucfirst(strtolower($usuario['nombre'])); ?></td>
-                          <td><?php echo ucfirst(strtolower($usuario['apellido'])); ?></td>
-                          <td><?php echo ucfirst(strtolower($usuario['email'])); ?></td>
-                          <td><?php echo ucfirst(strtolower($usuario['celular'])); ?></td>
-                          <td><?php echo ucfirst(strtolower($usuario['placa'])); ?></td>
-                          <td><?php echo ucfirst(strtolower($usuario['fecha_ingreso'])); ?></td>
-                          <td><?php echo ucfirst(strtolower($usuario['fecha_salida'])); ?></td>
-                          <td><?php echo (!empty($usuario['tiempo']))? ucfirst(strtolower($usuario['tiempo'])): '<div id="hour">00</div>';?>  </td>
-                          <td>
-                            <div id="tiempotrnas"></div>
-                          </td>
-                          <td>
-                            <a href="#" class="btn btn-primary btn-round">Pagar</a>
-                          </td>
-                          <input type="hidden" id="hora_desde" value="<?php echo date("H", strtotime($usuario['fecha_ingreso'])); ?>" >
-                          <input type="hidden" id="minuto_desde" value="<?php echo date("i", strtotime($usuario['fecha_ingreso'])); ?>" >
-                          <input type="hidden" id="hora_registro" value="<?php echo date("H:i", strtotime($usuario['fecha_ingreso'])); ?>" >
-                          <input type="hidden" id="hora_hasta" value="<?php echo date("H:i"); ?>" >
-                        </tr>
-                        <?php }?>
+                      <tbody class="contenido">
                       </tbody>
                     </table>
                   </div>
@@ -189,9 +140,9 @@ $usuarios = $filaAccion->getFetchArray($bd->consultar($sql, $parametros));
       <footer class="footer">
       </footer>
       <script>
-        const x = new Date().getFullYear();
-        let date = document.getElementById('date');
-        date.innerHTML = '&copy; ' + x + date.innerHTML;
+        // const x = new Date().getFullYear();
+        // let date = document.getElementById('date');
+        // date.innerHTML = '&copy; ' + x + date.innerHTML;
       </script>
     </div>
   </div>
@@ -215,6 +166,9 @@ $usuarios = $filaAccion->getFetchArray($bd->consultar($sql, $parametros));
   <script src="../assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
+      var a = '<?php echo (int) $admin; ?>';
+      var i = '<?php echo (int) $idCliente; ?>';
+      lista(a, i);
       function newDate(partes) {
           var date = new Date(0);
           date.setHours(partes[0]);
@@ -265,8 +219,11 @@ $usuarios = $filaAccion->getFetchArray($bd->consultar($sql, $parametros));
 
       $('#hora_desde').change(calculardiferencia);
       $('#hora_hasta').change(calculardiferencia);
-      calculardiferencia();
- 
+
+      if(a == 0){
+        calculardiferencia();
+      }
+
 
       $().ready(function() {
         $sidebar = $('.sidebar');
@@ -349,7 +306,7 @@ $usuarios = $filaAccion->getFetchArray($bd->consultar($sql, $parametros));
 
           if ($('.switch-sidebar-image input:checked').length == 0) {
             var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+            var new_image_full_page = $('.fixed-pluidClientegin li.active .img-holder').find('img').data('src');
 
             $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
             $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
@@ -427,6 +384,30 @@ $usuarios = $filaAccion->getFetchArray($bd->consultar($sql, $parametros));
         });
       });
     });
+    function lista(a,i){
+      $.ajax({
+        method: "POST",
+        url: '../ajax/ajaxlista.php',
+        data: {
+          'adminAjax': a,
+          'idClienteAjax': i,
+        },
+        success: function(data){
+          $(".contenido").html(data);
+        }
+      });
+    }
+    function eliminar(d,a,i){
+      $.ajax({
+        method: "POST",
+        url: '../ajax/ajaxborrar.php',
+        data: {'idClienteAjax': d},
+        dataType: 'json',
+        success: function(data){
+          lista(a,i);
+        }
+      });
+    }
   </script>
 </body>
 

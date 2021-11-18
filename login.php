@@ -14,12 +14,9 @@ include 'lib/head.php';
     </div>
     <br/ >
     <!-- Document Form -->
-    <form>
-      <input type="email" id="email" class="fadeIn second" name="email" placeholder="Correo" autocomplete="off" required="required">
-      <input type="password" id="clave" class="fadeIn second" name="clave" placeholder="Clave" autocomplete="off" required="required">
+      <input type="email" id="email" class="fadeIn second" name="email" placeholder="Correo" autocomplete="off" required>
+      <input type="password" id="clave" class="fadeIn second" name="clave" placeholder="Clave" autocomplete="off" required>
       <input type="submit" class="fadeIn fourth" value="Ingresar" id="registrar">
-    </form>
-
     <!-- Info -->
     <div id="formFooter">
       <div class="alert alert-warning" role="alert" id="alert"></div>
@@ -35,8 +32,14 @@ include 'lib/head.php';
     $("#registrar").click(function(){
       let e = $("#email").val();
       let c = $("#clave").val();
-      validar(e,c);
-      return false;
+      if(e == '' || c == ''){
+          $('#alert').text('¡Por favor ingrese los datos!');
+          $('#alert').fadeIn();
+          $('#alert').fadeOut(5000);
+      }else{
+        validar(e,c);
+        return false;
+      }
     });
   });
   function validar(e,c){
@@ -49,6 +52,7 @@ include 'lib/head.php';
         if( data.error == true){
           $('#alert').text(data.accion);
           $('#alert').fadeIn();
+          $('#alert').fadeOut(5000);
         }else{
           window.location.href = data.accion; 
         }

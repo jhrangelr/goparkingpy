@@ -11,7 +11,7 @@ if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_RE
     $email = trim(strtolower($_POST['email']));
     $clave = trim($_POST['clave']);
 
-    $sql = "SELECT id_cliente, nombre, apellido FROM cliente WHERE email = '%s' AND clave = '%s';";
+    $sql = "SELECT id_cliente, nombre, apellido, id_rol FROM cliente WHERE email = '%s' AND clave = '%s';";
     $parametros = array(
         $email,
         $clave
@@ -22,11 +22,12 @@ if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_RE
     if(isset($login)){
         session_start();
         $date = date('Y-m-d H:i:s');
-        $_SESSION['id'] = $login->id_cliente;
-        $_SESSION['nombre'] = $login->nombre;
-        $_SESSION['apellido'] = $login->apellido;
+        $_SESSION['id_cliente'] = $login->id_cliente;
+        $_SESSION['nombre']     = $login->nombre;
+        $_SESSION['apellido']   = $login->apellido;
         $_SESSION['userAgent']  = $_SERVER['HTTP_USER_AGENT'];
         $_SESSION['SKey'] 		= uniqid(mt_rand(), true);
+        $_SESSION['rol']        = $login->id_rol;
         $_SESSION['LastActivity'] = $_SERVER['REQUEST_TIME'];
         $sql = "UPDATE cliente SET fecha_actualizar = '%s' WHERE id_cliente = '%s';";
         $parametros = array(
